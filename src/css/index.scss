@@ -6,7 +6,7 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
-  background: #090a0f;
+  background: #0f111a;
 }
 
 header {
@@ -16,12 +16,54 @@ header {
   align-items: center;
   height: 50px;
   background: $main;
-  margin: 30px 0;
+  margin: 40px 0;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+
   & > .logo {
     height: 100px;
     width: 100px;
     border-radius: 100%;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+    background: $main;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+img {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  margin: 50px 0;
+
+  & > .content {
+    width: 100%;
+    padding: 25px 725px 25px 75px;
+    background: $main;
+    text-align: right;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  & > .image {
+    position: absolute;
+    top: 0;
+    right: 75px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.75);
+    transition: filter 0.2s;
+
+    &.lazy {
+      filter: blur(4px);
+    }
   }
 }
 
@@ -30,6 +72,7 @@ header {
   flex-direction: column;
   height: 800px;
   color: greenyellow;
+
   & > div:first-child {
     font-weight: 700;
   }
