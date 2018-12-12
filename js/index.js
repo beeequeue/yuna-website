@@ -1,0 +1,2 @@
+"use strict";var e=document.querySelector(".below-fold");e&&(e.innerHTML="loaded"),document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("img.lazy");if("IntersectionObserver"in window){var t=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){var n=e.target;n.src=n.dataset.src,n.srcset=n.dataset.srcset||"",n.onload=function(){n.classList.remove("lazy"),n.onload=null},t.unobserve(n)}})});e.forEach(function(e){return t.observe(e)})}});
+//# sourceMappingURL=index.js.map
