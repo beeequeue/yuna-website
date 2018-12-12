@@ -7,15 +7,15 @@ body {
   user-select: none;
 }
 
-body {
-  background: #111;
-}
-
 .above-fold {
   display: flex;
   flex-direction: column;
   height: 1500px;
   color: greenyellow;
+
+  & > div:first-child {
+    font-weight: 700;
+  }
 }
 
 .below-fold {
