@@ -1,4 +1,3 @@
-const { resolve } = require('path')
 const { src, dest, watch, series, parallel } = require('gulp')
 const ifG = require('gulp-if')
 const Autoprefixer = require('gulp-autoprefixer')
@@ -10,6 +9,7 @@ const Uglify = require('gulp-uglify')
 const SourceMaps = require('gulp-sourcemaps')
 const Critical = require('critical').stream
 const Delete = require('delete')
+const Pages = require('gh-pages')
 
 const browserList = ['last 5 versions', 'ie >= 9', 'safari >= 7']
 const destination = 'dist'
@@ -75,6 +75,10 @@ exports.watch = cb => {
   watch(jsPath, { ignoreInitial }, js)
   watch(restPaths, { ignoreInitial }, rest)
   cb()
+}
+
+exports.publish = cb => {
+  Pages.publish('dist', cb)
 }
 
 exports.default = series(clean, parallel(html, css, js, rest))
