@@ -5,7 +5,6 @@ if (el) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const lazyImages = document.querySelectorAll('img.lazy')
-  console.log(lazyImages.length, ' images')
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
