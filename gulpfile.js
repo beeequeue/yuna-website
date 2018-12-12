@@ -24,7 +24,7 @@ Sass.compiler = require('node-sass')
 const htmlPath = 'src/**/*.pug'
 const html = () =>
   src(htmlPath)
-    .pipe(Pug())
+    .pipe(Pug({ locals: { isProd } }))
     .pipe(dest(destination))
 
 // SCSS -> CSS
@@ -48,7 +48,7 @@ const js = () =>
     .pipe(dest(destination))
 
 // Copy files
-const restPaths = ['src/**/*.svg', 'src/**/*.ico']
+const restPaths = 'src/**/*.{png,jpg,svg,ico,webp}'
 const rest = () => src(restPaths).pipe(dest(destination))
 
 const critical = () =>
@@ -69,6 +69,7 @@ const clean = () => Delete.promise('dist/*')
 exports.clean = clean
 
 exports.watch = cb => {
+  clean()
   watch(htmlPath, { ignoreInitial }, html)
   watch(cssPath, { ignoreInitial }, css)
   watch(jsPath, { ignoreInitial }, js)
