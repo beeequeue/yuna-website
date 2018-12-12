@@ -12,8 +12,14 @@ html(lang="en")
     meta(name="theme-color" content="#212d47")
 
     style.
-      body { background: #111; color: #eee; transition: background 1s; }
+      body {
+        background: #111;
+        color: #eee;
+        font-family: 'Lato', sans-serif;
+        transition: background 1s;
+      }
 
+    link(rel="stylesheet", href="fonts/fonts.css")
     link(rel="stylesheet", href="css/index.css")
 
     title Yuna - Anime Player and List Manger
@@ -23,15 +29,24 @@ html(lang="en")
       img.logo(src="img/logo.png")
 
     .section
-      .content Watch anime and update your List from the same place!
+      .content
+        h2 Watch anime and update your List from the same place!
+        p With Crunchyroll integration you can watch any show available, with automatic list updating when you finish an episode!
       +lazyImg("anime")
 
     .section
-      .content Text goes here 2
+      .content
+        h2 Configurable spoiler hiding!
+        p.
+          Do you obsess over spoilers like a certain friend of mine?<br/>
+          Hide info until you've already seen it in the show!
+        p.hint Click the image to toggle the spoiler hiding!
       +lazyImg("anime-spoiler")
 
     .section
-      .content Text goes here 3
+      .content
+        h2 Watch anime and update your List from the same place!
+        p With Crunchyroll integration you can watch any show available, with automatic list updating when you finish an episode!
       +lazyImg("list")
 
     .below-fold.
