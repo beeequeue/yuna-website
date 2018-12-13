@@ -31,6 +31,10 @@ body {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+body * {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -83,6 +87,8 @@ header {
     align-items: center;
     flex-basis: 125px;
     font-family: 'Raleway', sans-serif;
+    color: $white;
+    text-decoration: none;
     cursor: pointer;
 
     &:last-child {
@@ -203,6 +209,7 @@ img {
       order: 0 !important;
       margin-bottom: 15px !important;
       background: $main !important;
+      padding: 25px 15px !important;
 
       & > .content {
         text-align: center !important;
