@@ -2,6 +2,7 @@ mixin lazyImg(file)
   img.image.lazy(
     src="img/flow-placeholder/" + file + ".jpg"
     data-src="img/flow/" + file + ".jpg"
+    alt=file
   )
 
 <!DOCTYPE html>
@@ -20,8 +21,8 @@ html(lang="en")
         transition: background 1s;
       }
 
-    link(link href="https://fonts.googleapis.com/css?family=Lato:400|Raleway:700" rel="stylesheet")
     link(rel="stylesheet" href="css/index.css")
+    link(link href="https://fonts.googleapis.com/css?family=Lato:400|Raleway:700" rel="stylesheet")
 
     title Yuna - Anime Player and List Manger
 
@@ -77,6 +78,6 @@ html(lang="en")
       script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-87690373-2')
       script.
         window.dataLayer = window.dataLayer || []
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){dataLayer.push(arguments);
         gtag('js', new Date())
         gtag('config', 'UA-87690373-2')
