@@ -3,7 +3,7 @@ if (el) {
   el.innerHTML = 'loaded'
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+const loadLazyImages = () => {
   const lazyImages = document.querySelectorAll('img.lazy')
 
   if ('IntersectionObserver' in window) {
@@ -25,4 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     lazyImages.forEach(image => observer.observe(image))
   }
+}
+
+let initialLogoHeight = 0
+const initHeader = () => {
+  const logo = document.querySelector('.logo') as HTMLImageElement
+  initialLogoHeight = logo.clientHeight
+
+  const setSize = (size: number) => {
+    logo.setAttribute('style', `height: ${size}px; width: ${size}px`)
+  }
+
+  document.body.onscroll = () => {
+    const scroll = document.documentElement.scrollTop
+
+    const newSize = Math.max(
+      50,
+      Math.min(initialLogoHeight, initialLogoHeight - scroll),
+    )
+
+    setSize(newSize)
+
+    if (scroll >= 40) return logo.classList.add('small')
+    if (scroll < 40) return logo.classList.remove('small')
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadLazyImages()
+
+  initHeader()
 })

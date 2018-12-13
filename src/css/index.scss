@@ -1,4 +1,5 @@
 @import './colors.scss';
+
 html,
 body {
   margin: 0;
@@ -6,7 +7,7 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
-  background: #0f111a;
+  background: #0b0c13;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -37,7 +38,8 @@ p {
 }
 
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,6 +47,24 @@ header {
   background: $main;
   margin: 40px 0;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+  & > .item {
+    height: 100%;
+    margin: 0 15px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 125px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.35em;
+    cursor: pointer;
+
+    &:last-child {
+      justify-content: flex-start;
+    }
+  }
 
   & > .logo {
     height: 100px;
@@ -52,6 +72,14 @@ header {
     border-radius: 100%;
     background: $main;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    will-change: height, box-shadow;
+    transition: box-shadow 0.5s;
+
+    &.small {
+      height: 50px;
+      width: 50px;
+      box-shadow: none;
+    }
   }
 }
 
