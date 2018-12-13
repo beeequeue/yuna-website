@@ -33,7 +33,7 @@ body {
 
 body {
   @include medium() {
-    padding-top: 50px;
+    padding-top: 75px;
   }
 }
 
@@ -149,6 +149,21 @@ section {
   }
 }
 
+#video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+
+  & > video {
+    width: 600px;
+    max-width: 90%;
+    border-radius: 5px;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
+    background: $dark;
+  }
+}
+
 .section {
   position: relative;
   display: flex;
@@ -175,6 +190,7 @@ section {
     & > .content {
       text-align: right;
       max-width: 600px;
+      user-select: text;
     }
   }
 

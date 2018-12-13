@@ -48,7 +48,7 @@ const js = () =>
     .pipe(dest(destination))
 
 // Copy files
-const restPaths = ['src/**/*.{png,jpg,svg,ico,webp}', 'src/CNAME']
+const restPaths = ['src/**/*.{png,jpg,svg,ico,mp4}', 'src/CNAME']
 const rest = () => src(restPaths).pipe(dest(destination))
 
 const critical = () =>
