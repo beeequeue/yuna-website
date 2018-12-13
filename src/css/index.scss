@@ -86,7 +86,6 @@ header {
 img {
   position: relative;
   display: inline-block;
-  border-radius: 12px;
   overflow: hidden;
   object-fit: contain;
 }
@@ -97,41 +96,52 @@ img {
   align-items: center;
   width: 100%;
   height: 26vw;
-  max-height: 350px;
+  max-height: 400px;
   margin: 50px 0;
 
-  & > .content {
-    box-sizing: border-box;
-    max-height: 200px;
+  & > .content-container,
+  & > .image-container {
     width: 100%;
-    padding: 25px calc(50% + 25px) 25px 50px;
+  }
+
+  & > .content-container {
+    display: flex;
+    justify-content: flex-end;
+    max-height: 200px;
+    padding: 25px 50px;
     background: $main;
-    text-align: right;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 
-    @media only screen and (max-width: 1000px) {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    @media only screen and (min-width: 1250px) {
-      padding-left: calc(50% - 600px);
+    & > .content {
+      text-align: right;
+      max-width: 600px;
     }
   }
 
-  & > .image {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 600px;
-    max-width: calc(50% - 75px);
-    transform: translate(calc(100% + 25px), -50%);
-    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.75);
-    transition: filter 0.2s;
+  & > .image-container {
+    position: relative;
+    padding-right: 50px;
 
-    &.lazy {
-      filter: blur(4px);
+    & > .image {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.75);
+      transition: filter 0.2s;
+
+      &.lazy {
+        filter: blur(4px);
+      }
     }
   }
+
+  // &:nth-child(odd) {
+  //   & > .image {
+  //     right: auto;
+  //     left: 50%;
+  //     transform: translate(calc(-100% - 25px), -50%);
+  //   }
+  // }
 }
