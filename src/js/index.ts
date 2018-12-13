@@ -46,8 +46,8 @@ const initHeader = () => {
 
     setSize(newSize)
 
-    if (scroll >= 40) return logo.classList.add('small')
-    if (scroll < 40) return logo.classList.remove('small')
+    if (scroll >= 50) return logo.classList.add('small')
+    if (scroll < 50) return logo.classList.remove('small')
   }
 }
 

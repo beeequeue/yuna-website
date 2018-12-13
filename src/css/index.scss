@@ -2,6 +2,24 @@
 
 $main-dark: darken($main, 7.5%);
 
+@mixin small() {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin medium() {
+  @media (max-width: 799px) {
+    @content;
+  }
+}
+
+@mixin large() {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -46,42 +64,53 @@ header {
   justify-content: center;
   align-items: center;
   height: 50px;
+  margin-bottom: 40px;
   background: $main;
-  background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
-  margin: 40px 0;
+  background: $main;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
   z-index: 10;
 
+  @include large() {
+    margin-top: 40px;
+    background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
+  }
+
   & > .item {
     height: 100%;
-    margin: 0 15px;
-    padding: 0 25px;
+    padding: 0 15px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-basis: 125px;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.35em;
     cursor: pointer;
 
     &:last-child {
       justify-content: flex-start;
     }
+
+    @include large() {
+      margin: 0 15px;
+      padding: 0 25px;
+      font-size: 1.35em;
+    }
   }
 
   & > .logo {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
     border-radius: 100%;
     background: $main;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
     will-change: height, box-shadow;
     transition: box-shadow 0.5s;
 
-    &.small {
-      height: 50px;
-      width: 50px;
-      box-shadow: none;
+    @include large() {
+      &:not(.small) {
+        height: 100px;
+        width: 100px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+      }
     }
   }
 }
@@ -140,7 +169,7 @@ img {
     }
   }
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     & > .image-container {
       order: 0;
       padding-right: 0;
@@ -155,6 +184,39 @@ img {
 
       & > .content {
         text-align: left;
+      }
+    }
+  }
+
+  @include medium() {
+    height: auto !important;
+    max-height: none !important;
+    flex-direction: column !important;
+    margin-bottom: 50px !important;
+
+    & > .content-container,
+    & > .image-container {
+      justify-content: center !important;
+    }
+
+    & > .content-container {
+      order: 0 !important;
+      margin-bottom: 15px !important;
+      background: $main !important;
+
+      & > .content {
+        text-align: center !important;
+      }
+    }
+
+    & > .image-container {
+      order: 1 !important;
+      padding: 0 !important;
+      justify-content: center !important;
+
+      & > .image {
+        max-width: none !important;
+        width: 90% !important;
       }
     }
   }

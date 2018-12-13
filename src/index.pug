@@ -27,44 +27,45 @@ html(lang="en")
 
   body
     header
-      .item item
+      a.item(href="#features") Features
       img.logo(src="img/logo.png")
-      .item Download
+      a.item(href="#download") Download
 
-    .section
-      .content-container
-        .content
-          h3 Watch anime and update your List from the same place!
-          p With Crunchyroll integration you can watch any show available, with automatic list updating when you finish an episode!
-      .image-container
-        +lazyImg("anime")
+    section#features
+      .section
+        .content-container
+          .content
+            h3 Watch anime and update your List from the same place!
+            p With Crunchyroll integration you can watch any show available, with automatic list updating when you finish an episode!
+        .image-container
+          +lazyImg("anime")
 
-    .section
-      .content-container
-        .content
-          h3 Easily keep track of what to watch next!
-          p Add shows to your Queue to quickly resume from where you left off!<br/>
-          p Easily know what to watch next with easy importing from your List!
-      .image-container
-        +lazyImg("queue")
+      .section
+        .content-container
+          .content
+            h3 Easily keep track of what to watch next!
+            p Add shows to your Queue to quickly resume from where you left off!<br/>
+            p Easily know what to watch next with easy importing from your List!
+        .image-container
+          +lazyImg("queue")
 
-    .section
-      .content-container
-        .content
-          h3 Configurable spoiler hiding!
-          p.
-            Do you obsess over spoilers like a certain friend of mine?<br/>
-            Hide info until you've already seen it in the show!
-          p.hint Click the image to toggle the spoiler hiding!
-      .image-container
-        +lazyImg("anime-spoiler")
+      .section
+        .content-container
+          .content
+            h3 Configurable spoiler hiding!
+            p.
+              Do you obsess over spoilers like a certain friend of mine?<br/>
+              Hide info until you've already seen it in the show!
+            p.hint Click the image to toggle the spoiler hiding!
+        .image-container
+          +lazyImg("anime-spoiler")
 
-    .section
-      .content-container
-        .content
-          h3 Quickly edit your List without opening AniList!
-          p insert text here
-      .image-container
-        +lazyImg("list")
+      .section
+        .content-container
+          .content
+            h3 Quickly edit your List without opening AniList!
+            p insert text here
+        .image-container
+          +lazyImg("list")
 
     script(src="js/index.js")
