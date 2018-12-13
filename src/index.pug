@@ -1,6 +1,6 @@
 mixin lazyImg(file)
   img.image.lazy(
-    src="img/flow-small/" + file + ".jpg"
+    src="img/flow-placeholder/" + file + ".jpg"
     data-src="img/flow/" + file + ".jpg"
   )
 
@@ -20,14 +20,16 @@ html(lang="en")
         transition: background 1s;
       }
 
-    link(rel="stylesheet" href="fonts/fonts.css")
+    link(link href="https://fonts.googleapis.com/css?family=Lato:400|Raleway:700" rel="stylesheet")
     link(rel="stylesheet" href="css/index.css")
 
     title Yuna - Anime Player and List Manger
 
   body
     header
+      .item
       img.logo(src="img/logo.png")
+      .item Download
 
     .section
       .content
