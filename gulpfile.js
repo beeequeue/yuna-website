@@ -7,7 +7,6 @@ const Sass = require('gulp-sass')
 const Pug = require('gulp-pug')
 const Uglify = require('gulp-uglify')
 const SourceMaps = require('gulp-sourcemaps')
-const Critical = require('critical').stream
 const Delete = require('delete')
 const Pages = require('gh-pages')
 
@@ -50,18 +49,6 @@ const js = () =>
 // Copy files
 const restPaths = ['src/**/*.{png,jpg,svg,ico,mp4}', 'src/CNAME']
 const rest = () => src(restPaths).pipe(dest(destination))
-
-const critical = () =>
-  src('dist/*.html')
-    .pipe(
-      Critical({
-        base: 'dist/',
-        inline: true,
-        width: 1800,
-        height: 900,
-      }),
-    )
-    .pipe(dest('dist'))
 
 // Delete files
 const clean = () => Delete.promise('dist/*')
