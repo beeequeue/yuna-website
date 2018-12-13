@@ -28,7 +28,7 @@ const loadLazyImages = () => {
 }
 
 let initialLogoHeight = 0
-const initHeader = () => {
+const initLogo = () => {
   const logo = document.querySelector('.logo') as HTMLImageElement
   initialLogoHeight = logo.clientHeight
 
@@ -51,8 +51,31 @@ const initHeader = () => {
   }
 }
 
+const initHeaderLinks = () => {
+  const links = document.querySelectorAll<HTMLLinkElement>('header > a')
+
+  links.forEach(link => {
+    const { hash } = new URL(link.href)
+    if (hash == null) return
+
+    link.onclick = e => {
+      e.preventDefault()
+
+      // Slice to remove the #
+      const destination = document.getElementById(hash.slice(1))
+
+      if (!destination) return
+
+      document.documentElement.scrollTo({
+        top: destination.offsetTop - 50,
+        behavior: 'smooth',
+      })
+    }
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadLazyImages()
-
-  initHeader()
+  initLogo()
+  initHeaderLinks()
 })

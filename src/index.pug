@@ -9,7 +9,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="theme-color" content="#212d47")
+    meta(name="theme-color" content="#151724")
     link(rel="icon" href="icon.ico?v=1")
 
     style.
@@ -32,6 +32,8 @@ html(lang="en")
       a.item(href="#download") Download
 
     section#features
+      h1.heading Features
+
       .section
         .content-container
           .content
@@ -69,3 +71,12 @@ html(lang="en")
           +lazyImg("list")
 
     script(src="js/index.js")
+
+    //- Analytics
+    if (isProd)
+      script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-87690373-2')
+      script.
+        window.dataLayer = window.dataLayer || []
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date())
+        gtag('config', 'UA-87690373-2')

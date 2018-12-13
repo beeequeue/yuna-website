@@ -31,6 +31,12 @@ body {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+body {
+  @include medium() {
+    padding-top: 50px;
+  }
+}
+
 body * {
   box-sizing: border-box;
 }
@@ -62,19 +68,20 @@ p {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
   margin-bottom: 40px;
   background: $main;
-  background: $main;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
   z-index: 10;
 
   @include large() {
+    position: sticky;
     margin-top: 40px;
     background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
   }
@@ -126,6 +133,20 @@ img {
   display: inline-block;
   overflow: hidden;
   object-fit: contain;
+}
+
+section {
+  & > .heading {
+    width: 100%;
+    padding: 10px 35px;
+    text-align: center;
+    background: $main;
+    margin-bottom: 25px;
+
+    @include large() {
+      background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
+    }
+  }
 }
 
 .section {
