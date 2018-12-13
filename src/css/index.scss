@@ -1,5 +1,7 @@
 @import './colors.scss';
 
+$main-dark: darken($main, 7.5%);
+
 html,
 body {
   margin: 0;
@@ -45,6 +47,7 @@ header {
   align-items: center;
   height: 50px;
   background: $main;
+  background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
   margin: 40px 0;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
   z-index: 10;
@@ -109,7 +112,7 @@ img {
     justify-content: flex-end;
     max-height: 200px;
     padding: 25px 50px;
-    background: $main;
+    background: linear-gradient(0.25turn, $main-dark, $main);
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 
@@ -148,6 +151,7 @@ img {
     & > .content-container {
       order: 1;
       justify-content: flex-start;
+      background: linear-gradient(0.75turn, $main-dark, $main);
 
       & > .content {
         text-align: left;
