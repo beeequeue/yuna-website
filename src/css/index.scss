@@ -135,18 +135,3 @@ img {
     }
   }
 }
-
-.above-fold {
-  display: flex;
-  flex-direction: column;
-  height: 800px;
-  color: greenyellow;
-
-  & > div:first-child {
-    font-weight: 700;
-  }
-}
-
-.below-fold {
-  color: red;
-}
