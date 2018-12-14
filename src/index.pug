@@ -30,10 +30,16 @@ html(lang="en")
     header
       a.item(href="#features") Features
       img.logo(src="img/logo.png")
-      a.item(href="#download") Download
+      a.item(href="#video") Download
 
     section#video
-      video(src="video/flow.mp4?v=1" autoplay="true" loop="true" muted="true")
+      video(src="video/flow.mp4?v=1" autoplay=isProd loop="true" muted="true")
+
+      button
+        span.icon
+          svg(viewBox='0 0 24 24')
+            path(fill='#eee' d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z')
+        | Download
 
     section#features
       h1.heading Features

@@ -1,0 +1,72 @@
+@import './colors.scss';
+
+@mixin raised($color) {
+  background: $color;
+
+  &:hover {
+    background: lighten($color, 4%);
+  }
+  &:active {
+    background: darken($color, 4%);
+  }
+  &.disabled {
+    background: mix($color, #333) !important;
+    color: darken($white, 25%);
+    cursor: default;
+
+    & > .icon {
+      fill: darken($white, 25%);
+    }
+  }
+
+  & > .icon {
+    fill: $white;
+  }
+}
+
+button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.25em;
+
+  transition: background 0.1s, color 0.1s, fill 0.1s;
+
+  & {
+    color: $white;
+    font-weight: 300;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    @include raised($highlight);
+
+    & > .icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 1.1em;
+      height: 1.1em;
+      margin-right: 5px;
+      flex-shrink: 0;
+
+      & > svg {
+        height: 100%;
+        width: 100%;
+      }
+
+      &.alert {
+        animation: growBounce 0.75s, shake 0.75s;
+        animation-iteration-count: 1;
+      }
+
+      &.shake {
+        animation: shake 0.25s;
+        animation-iteration-count: 2;
+      }
+    }
+  }
+}

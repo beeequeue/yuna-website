@@ -1,4 +1,5 @@
 @import './colors.scss';
+@import './button.scss';
 
 $main-dark: darken($main, 7.5%);
 
@@ -153,6 +154,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-bottom: 50px;
 
   & > video {
@@ -161,6 +163,12 @@ section {
     border-radius: 5px;
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
     background: $dark;
+  }
+
+  & > button {
+    margin-top: 25px;
+    padding: 15px 35px;
+    font-size: 1.75em;
   }
 }
 
