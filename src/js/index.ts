@@ -51,7 +51,7 @@ const initHeaderLinks = () => {
 
   links.forEach(link => {
     const { hash } = new URL(link.href)
-    if (hash == null) return
+    if (hash === '') return
 
     link.onclick = e => {
       e.preventDefault()

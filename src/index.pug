@@ -30,7 +30,14 @@ html(lang="en")
     header
       a.item(href="#features") Features
       img.logo(src="img/logo.png")
-      a.item(href="#video") Download
+      a.item.align-left(href="#video") Download
+      a.github(
+        href="https://github.com/BeeeQueue/yuna"
+        target="_blank"
+        rel="noopener"
+        title="Source on GitHub"
+      )
+        img(src="img/github.svg" alt="github")
 
     section#video
       video(src="video/flow.mp4?v=1" autoplay=isProd loop="true" muted="true")
@@ -81,7 +88,7 @@ html(lang="en")
     footer
       a(href="https://github.com/BeeeQueue/yuna-website" target="_blank" rel="noopener")
         | This website is hosted using GitHub Pages
-        img.github(src="img/github.svg")
+        img.github(src="img/github.svg" alt="github")
 
     script(src="js/index.js")
 
