@@ -5,7 +5,6 @@ const CleanCSS = require('gulp-clean-css')
 const Sass = require('gulp-sass')
 const Pug = require('gulp-pug')
 const TypeScript = require('gulp-typescript')
-const Babel = require('gulp-babel')
 const Uglify = require('gulp-uglify')
 const SourceMaps = require('gulp-sourcemaps')
 const Delete = require('delete')
@@ -46,13 +45,10 @@ const js = () => {
     .pipe(SourceMaps.init())
     .pipe(TSProject())
 
-  return (
-    tsResult.js
-      // .pipe(Babel())
-      .pipe(ifProd(Uglify({ toplevel: true })))
-      .pipe(SourceMaps.write('.'))
-      .pipe(dest(destination))
-  )
+  return tsResult.js
+    .pipe(ifProd(Uglify({ toplevel: true })))
+    .pipe(SourceMaps.write('.'))
+    .pipe(dest(destination))
 }
 
 // Copy files
