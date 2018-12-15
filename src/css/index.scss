@@ -157,7 +157,7 @@ section {
     padding: 10px 35px;
     text-align: center;
     background: $main;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 
     @include large() {
       background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
