@@ -280,3 +280,27 @@ section {
     }
   }
 }
+
+footer {
+  margin-top: 50px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $dark;
+  & > a {
+    display: flex;
+    align-items: center;
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    & .github {
+      margin-left: 10px;
+      height: 1.25em;
+    }
+  }
+}
