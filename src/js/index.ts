@@ -69,6 +69,16 @@ const initHeaderLinks = () => {
   })
 }
 
+const initPlayer = () => {
+  const player = document.querySelector('video') as HTMLVideoElement
+
+  player.onclick = e => {
+    const target = e.currentTarget as HTMLVideoElement
+
+    target[target.paused ? 'play' : 'pause']()
+  }
+}
+
 const getExtension = () => {
   const { platform } = navigator
 
@@ -109,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadLazyImages()
   initLogo()
   initHeaderLinks()
+  initPlayer()
 
   getRelease()
 })
