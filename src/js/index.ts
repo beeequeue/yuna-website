@@ -1,8 +1,3 @@
-const el = document.querySelector('.below-fold')
-if (el) {
-  el.innerHTML = 'loaded'
-}
-
 const loadLazyImages = () => {
   const lazyImages = document.querySelectorAll('img.lazy')
 
@@ -74,8 +69,46 @@ const initHeaderLinks = () => {
   })
 }
 
+const getExtension = () => {
+  const { platform } = navigator
+
+  if (platform.match(/[wW]in/)) return '.exe'
+  if (platform.match(/[mM]ac/)) return '.dmg'
+}
+
+const HOUR = 1000 * 60 * 60
+const getRelease = async () => {
+  let latestRelease: any = localStorage.getItem('release')
+  const updatedAt = Number(localStorage.getItem('updatedAt') || 0)
+
+  const cacheNotStale = updatedAt + HOUR >= Date.now()
+  if (latestRelease != null && cacheNotStale) {
+    latestRelease = JSON.parse(latestRelease)
+  } else {
+    const response = await fetch(
+      'https://api.github.com/repos/BeeeQueue/yuna/releases?page=1',
+    )
+    latestRelease = (await response.json())[0]
+
+    localStorage.setItem('release', JSON.stringify(latestRelease))
+    localStorage.setItem('updatedAt', Date.now().toString())
+  }
+
+  const ext = getExtension()
+  const downloadButton = document.getElementById(
+    'download',
+  ) as HTMLButtonElement
+  const url = latestRelease.assets.find((release: any) =>
+    release.name.endsWith(ext),
+  ).browser_download_url
+
+  downloadButton.onclick = () => (location.href = url)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadLazyImages()
   initLogo()
   initHeaderLinks()
+
+  getRelease()
 })

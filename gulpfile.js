@@ -1,10 +1,11 @@
 const { src, dest, watch, series, parallel } = require('gulp')
 const ifG = require('gulp-if')
 const Autoprefixer = require('gulp-autoprefixer')
-const Babel = require('gulp-babel')
 const CleanCSS = require('gulp-clean-css')
 const Sass = require('gulp-sass')
 const Pug = require('gulp-pug')
+const TypeScript = require('gulp-typescript')
+const Babel = require('gulp-babel')
 const Uglify = require('gulp-uglify')
 const SourceMaps = require('gulp-sourcemaps')
 const Delete = require('delete')
@@ -16,6 +17,8 @@ const destination = 'dist'
 const ignoreInitial = false
 const isProd = process.env.NODE_ENV === 'production'
 const ifProd = m => ifG(isProd, m)
+
+const TSProject = TypeScript.createProject('tsconfig.json')
 
 Sass.compiler = require('node-sass')
 
@@ -38,13 +41,19 @@ const css = () =>
     .pipe(dest(destination))
 
 const jsPath = 'src/**/*.ts'
-const js = () =>
-  src(jsPath)
+const js = () => {
+  const tsResult = src(jsPath)
     .pipe(SourceMaps.init())
-    .pipe(Babel())
-    .pipe(ifProd(Uglify({ toplevel: true })))
-    .pipe(SourceMaps.write('.'))
-    .pipe(dest(destination))
+    .pipe(TSProject())
+
+  return (
+    tsResult.js
+      // .pipe(Babel())
+      .pipe(ifProd(Uglify({ toplevel: true })))
+      .pipe(SourceMaps.write('.'))
+      .pipe(dest(destination))
+  )
+}
 
 // Copy files
 const restPaths = ['src/**/*.{png,jpg,svg,ico,mp4}', 'src/CNAME']

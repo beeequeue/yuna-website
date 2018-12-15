@@ -25,7 +25,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   width: 100%;
   user-select: none;
   background: #0b0c13;
@@ -40,6 +39,8 @@ body {
 
 body * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
 }
 
 h1,
@@ -169,6 +170,12 @@ section {
     margin-top: 25px;
     padding: 15px 35px;
     font-size: 1.75em;
+  }
+
+  & > a {
+    padding: 10px 0;
+    color: white;
+    font-family: 'Raleway', sans-serif;
   }
 }
 

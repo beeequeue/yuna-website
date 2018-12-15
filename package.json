@@ -19,6 +19,7 @@
     "gulp-pug": "4.0.1",
     "gulp-sass": "4.0.2",
     "gulp-sourcemaps": "2.6.4",
+    "gulp-typescript": "^5.0.0",
     "gulp-uglify": "3.0.1",
     "husky": "1.2.0",
     "lint-staged": "8.1.0",

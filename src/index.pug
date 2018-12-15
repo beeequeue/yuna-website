@@ -35,11 +35,11 @@ html(lang="en")
     section#video
       video(src="video/flow.mp4?v=1" autoplay=isProd loop="true" muted="true")
 
-      button
-        span.icon
-          svg(viewBox='0 0 24 24')
-            path(fill='#eee' d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z')
+      button#download(onclick="location.href = 'https://github.com/BeeeQueue/yuna/releases'")
         | Download
+
+      a(href="https://github.com/BeeeQueue/yuna/releases" target="_blank" rel="noopener").
+        Release notes and more downloads
 
     section#features
       h1.heading Features
