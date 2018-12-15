@@ -43,7 +43,6 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production gulp",
     "serve": "gulp watch",
-    "publish": "cross-env NODE_ENV=production gulp publish",
-    "release": "yarn run publish"
+    "release": "cross-env NODE_ENV=production yarn run build && gulp publish"
   }
 }
