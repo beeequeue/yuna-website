@@ -44,12 +44,18 @@ html(lang="en")
     section#video
       video(src="video/flow.mp4?v=2" autoplay=isProd loop="true" muted="true")
 
-      button#download(onclick="location.href = 'https://github.com/BeeeQueue/yuna/releases'")
-        p Download
-        p.version
+      .download-container
+        .platforms
+          img(src="img/windows.svg", alt="win")
+          img(src="img/mac.svg", alt="mac")
+          img(src="img/linux.svg", alt="linux")
 
-      a(href="https://github.com/BeeeQueue/yuna/releases" target="_blank" rel="noopener").
-        Release notes and more downloads
+        button#download(onclick="location.href = 'https://github.com/BeeeQueue/yuna/releases'")
+          p Download
+          p.version
+
+        a(href="https://github.com/BeeeQueue/yuna/releases" target="_blank" rel="noopener").
+          Release notes and more downloads
 
     section#features
       h1.heading Features

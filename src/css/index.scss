@@ -180,25 +180,44 @@ section {
     background: $dark;
   }
 
-  & > button {
+  & > .download-container {
     margin-top: 25px;
-    padding: 15px 35px;
-    font-size: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-    & > p {
-      margin: 0;
+    & > .platforms {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+
+      & > img {
+        margin: 0 5px;
+        height: 24px;
+        width: 24px;
+      }
     }
 
-    & > .version {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-  }
+    & > button {
+      padding: 15px 35px;
+      font-size: 1.75rem;
 
-  & > a {
-    padding: 10px 0;
-    color: white;
-    font-family: 'Raleway', sans-serif;
+      & > p {
+        margin: 0;
+      }
+
+      & > .version {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    & > a {
+      padding: 10px 0;
+      color: white;
+      font-family: 'Raleway', sans-serif;
+    }
   }
 }
 
