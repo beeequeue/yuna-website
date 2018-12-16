@@ -1,3 +1,17 @@
+const pick = <K extends Array<keyof T>, T extends {}>(keys: K, obj: T) => {
+  const willReturn = {} as any
+  let counter = 0
+
+  while (counter < keys.length) {
+    if (keys[counter] in obj) {
+      willReturn[keys[counter]] = obj[keys[counter]]
+    }
+    counter++
+  }
+
+  return willReturn as Pick<T, K[number]>
+}
+
 const loadLazyImages = () => {
   const lazyImages = document.querySelectorAll('img.lazy')
 
@@ -86,31 +100,50 @@ const getExtension = () => {
   if (platform.match(/[mM]ac/)) return '.dmg'
 }
 
-const HOUR = 1000 * 60 * 60
+type ThinRelease = Pick<GitHubRelease, 'assets' | 'name' | 'tag_name'>
+const MINUTE = 1000 * 60
 const getRelease = async () => {
-  let latestRelease: any = localStorage.getItem('release')
+  let latestRelease: GitHubRelease | ThinRelease | null = null
+  const cachedRelease = localStorage.getItem('release')
   const updatedAt = Number(localStorage.getItem('updatedAt') || 0)
 
-  const cacheNotStale = updatedAt + HOUR >= Date.now()
-  if (latestRelease != null && cacheNotStale) {
-    latestRelease = JSON.parse(latestRelease)
-  } else {
+  if (cachedRelease) {
+    latestRelease = JSON.parse(cachedRelease) as ThinRelease
+
+    updateReleaseButton(latestRelease)
+  }
+
+  const isStale = updatedAt + MINUTE < Date.now()
+  if (!cachedRelease || isStale) {
     const response = await fetch(
       'https://api.github.com/repos/BeeeQueue/yuna/releases?page=1',
     )
-    latestRelease = (await response.json())[0]
+    latestRelease = (await response.json())[0] as GitHubRelease
 
-    localStorage.setItem('release', JSON.stringify(latestRelease))
+    updateReleaseButton(latestRelease)
+
+    localStorage.setItem(
+      'release',
+      JSON.stringify(pick(['assets', 'name', 'tag_name'], latestRelease)),
+    )
     localStorage.setItem('updatedAt', Date.now().toString())
   }
+}
 
+const updateReleaseButton = (latestRelease: ThinRelease) => {
   const ext = getExtension()
   const downloadButton = document.getElementById(
     'download',
   ) as HTMLButtonElement
-  const url = latestRelease.assets.find((release: any) =>
-    release.name.endsWith(ext),
-  ).browser_download_url
+  ;(downloadButton.lastChild as HTMLParagraphElement).innerHTML =
+    latestRelease.tag_name
+
+  const correctAsset = latestRelease.assets.find(release =>
+    release.name.endsWith(ext || 'shabalabadoo'),
+  )
+  if (!correctAsset) return
+
+  const url = correctAsset.browser_download_url
 
   downloadButton.onclick = () => (location.href = url)
 }
