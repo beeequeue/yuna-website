@@ -145,7 +145,11 @@ const updateReleaseButton = (latestRelease: ThinRelease) => {
 
   const url = correctAsset.browser_download_url
 
-  downloadButton.onclick = () => (location.href = url)
+  downloadButton.onclick = () => {
+    ga('send', 'event', 'action', 'download')
+
+    location.href = url
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
