@@ -22,7 +22,7 @@ const TSProject = TypeScript.createProject('tsconfig.json')
 Sass.compiler = require('node-sass')
 
 // Pug -> HTML
-const htmlPath = 'src/**/*.pug'
+const htmlPath = 'src/*.pug'
 const html = () =>
   src(htmlPath)
     .pipe(Pug({ locals: { isProd } }))

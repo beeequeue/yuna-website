@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "BeeeQueue",
   "devDependencies": {
-    "@types/google.analytics": "^0.0.39",
     "cross-env": "5.2.0",
     "delete": "1.1.0",
     "gh-pages": "2.0.1",

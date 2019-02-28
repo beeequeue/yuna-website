@@ -1,3 +1,7 @@
+declare const ma: {
+  trackEvent: (a: any, b: any) => void
+}
+
 declare interface GitHubRelease {
   url: string
   assets_url: string

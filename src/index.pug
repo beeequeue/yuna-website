@@ -13,7 +13,7 @@ html(lang="en")
     meta(name="theme-color" content="#151724")
     link(rel="icon" href="icon.ico?v=1")
 
-    include ./meta
+    include ./templates/meta
 
     style.
       body {
@@ -103,9 +103,4 @@ html(lang="en")
 
     //- Analytics
     if (isProd)
-      script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-87690373-2')
-      script.
-        window.dataLayer = window.dataLayer || []
-        function gtag(){dataLayer.push(arguments)}
-        gtag('js', new Date())
-        gtag('config', 'UA-87690373-2')
+      include ./templates/meta

@@ -146,7 +146,7 @@ const updateReleaseButton = (latestRelease: ThinRelease) => {
   const url = correctAsset.browser_download_url
 
   downloadButton.onclick = () => {
-    ga.getAll()[0].send('send', 'event', 'action', 'download')
+    ma.trackEvent('action', 'download')
 
     location.href = url
   }
