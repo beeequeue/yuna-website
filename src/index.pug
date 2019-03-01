@@ -42,6 +42,19 @@ html(lang="en")
         img(src="img/github.svg" alt="github")
 
     section#video
+      h1.description.
+        Anime Player and
+        #[img(src="img/anilist.svg")]
+        Manager
+
+      .providers
+        div Supported streaming services:
+        .container
+          a(href="https://crunchyroll.com" target="_blank" noref noopener)
+            img(src="img/providers/crunchyroll.svg")
+          a(href="https://hidive.com" target="_blank" noref noopener)
+            img(src="img/providers/hidive.svg")
+
       video(src="video/flow.mp4?v=2" autoplay=isProd loop="true" muted="true")
 
       .download-container

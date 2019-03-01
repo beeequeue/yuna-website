@@ -159,7 +159,7 @@ section {
     background: $main;
     margin-bottom: 35px;
 
-    @include large() {
+    @include large {
       background: linear-gradient(0.25turn, $main-dark, $main, $main-dark);
     }
   }
@@ -171,6 +171,36 @@ section {
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
+
+  & > .description {
+    display: flex;
+    align-items: center;
+
+    @include small {
+      font-size: 1.15em;
+      margin-bottom: 25px;
+    }
+
+    & > img {
+      height: 45px;
+      margin: 0 5px;
+    }
+  }
+
+  & > .providers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > .container {
+      margin: 15px 0;
+
+      & img {
+        margin: 0 10px;
+        height: 50px;
+      }
+    }
+  }
 
   & > video {
     width: 600px;
