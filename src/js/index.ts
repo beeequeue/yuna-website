@@ -146,8 +146,6 @@ const updateReleaseButton = (latestRelease: ThinRelease) => {
   const url = correctAsset.browser_download_url
 
   downloadButton.onclick = () => {
-    ma.trackEvent('action', 'download')
-
     location.href = url
   }
 }
