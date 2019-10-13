@@ -10,7 +10,6 @@ const SourceMaps = require('gulp-sourcemaps')
 const Delete = require('delete')
 const Pages = require('gh-pages')
 
-const browserList = ['last 5 versions', 'ie >= 9', 'safari >= 7']
 const destination = 'dist'
 
 const ignoreInitial = false
@@ -34,7 +33,7 @@ const css = () =>
   src(cssPath)
     .pipe(SourceMaps.init())
     .pipe(Sass().on('error', Sass.logError))
-    .pipe(Autoprefixer({ browsers: browserList }))
+    .pipe(Autoprefixer())
     .pipe(ifProd(CleanCSS()))
     .pipe(SourceMaps.write('.'))
     .pipe(dest(destination))
