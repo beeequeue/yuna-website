@@ -187,17 +187,26 @@ section {
     }
   }
 
-  & > .providers {
+  & > .support {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
 
-    & > .container {
-      margin: 15px 0;
+    & > .providers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
 
-      & img {
-        margin: 0 10px;
-        height: 50px;
+      & > .container {
+        margin: 15px 0;
+
+        & img {
+          margin: 0 10px;
+          height: 50px;
+        }
       }
     }
   }

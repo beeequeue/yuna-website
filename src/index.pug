@@ -43,17 +43,24 @@ html(lang="en")
 
     section#video
       h1.description.
-        Anime Player and
-        #[img(src="img/anilist.svg")]
-        Manager
+        Anime Player and List Manager
 
-      .providers
-        div Supported streaming services:
-        .container
-          a(href="https://crunchyroll.com" target="_blank" noref noopener)
-            img(src="img/providers/crunchyroll.svg")
-          a(href="https://hidive.com" target="_blank" noref noopener)
-            img(src="img/providers/hidive.svg")
+      .support
+        .providers
+          div List managers:
+          .container
+            a(href="https://anilist.co" target="_blank" noref noopener title="AniList")
+              img(src="img/anilist.svg")
+            a(href="https://simkl.com" target="_blank" noref noopener title="Simkl")
+              img(src="img/simkl.svg")
+
+        .providers
+          div Streaming services:
+          .container
+            a(href="https://crunchyroll.com" target="_blank" noref noopener title="Crunchyroll")
+              img(src="img/providers/crunchyroll.svg")
+            a(href="https://hidive.com" target="_blank" noref noopener title="HIDIVE")
+              img(src="img/providers/hidive.svg")
 
       video(src="video/flow.mp4?v=3" autoplay=isProd loop="true" muted="true")
 
