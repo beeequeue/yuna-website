@@ -15,14 +15,14 @@
     "gulp-pug": "4.0.1",
     "gulp-sass": "4.0.2",
     "gulp-sourcemaps": "2.6.5",
-    "gulp-typescript": "^5.0.1",
+    "gulp-typescript": "5.0.1",
     "gulp-uglify": "3.0.2",
-    "husky": "3.0.9",
-    "lint-staged": "9.4.2",
-    "node-sass": "4.12.0",
-    "prettier": "1.18.2",
-    "ts-node": "8.4.1",
-    "typescript": "3.3.3333"
+    "husky": "3.1.0",
+    "lint-staged": "9.5.0",
+    "node-sass": "4.13.0",
+    "prettier": "1.19.1",
+    "ts-node": "8.5.4",
+    "typescript": "3.7.4"
   },
   "husky": {
     "hooks": {
