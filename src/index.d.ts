@@ -70,3 +70,5 @@ declare interface GitHubRelease {
   zipball_url: string
   body: string
 }
+
+declare function fathom(type: 'trackGoal', id: string, value: number): void

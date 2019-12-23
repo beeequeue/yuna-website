@@ -12,6 +12,10 @@ const pick = <K extends Array<keyof T>, T extends {}>(keys: K, obj: T) => {
   return willReturn as Pick<T, K[number]>
 }
 
+const trackDownload = () => {
+  fathom('trackGoal', '0OQBGIRR', 0)
+}
+
 const loadLazyImages = () => {
   const lazyImages = document.querySelectorAll('img.lazy')
 
@@ -141,11 +145,15 @@ const updateReleaseButton = (latestRelease: ThinRelease) => {
   const correctAsset = latestRelease.assets.find(release =>
     release.name.endsWith(ext || 'shabalabadoo'),
   )
+
+  downloadButton.onclick = trackDownload
+
   if (!correctAsset) return
 
   const url = correctAsset.browser_download_url
 
   downloadButton.onclick = () => {
+    trackDownload()
     location.href = url
   }
 }
