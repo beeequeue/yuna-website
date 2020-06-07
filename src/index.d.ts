@@ -71,4 +71,8 @@ declare interface GitHubRelease {
   body: string
 }
 
-declare function fathom(type: "trackGoal", id: string, value: number): void
+declare const fathom: {
+  trackPageView(options?: { url?: string; referrer?: string }): void
+
+  trackGoal(id: string, value: unknown): void
+}

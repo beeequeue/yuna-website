@@ -13,7 +13,7 @@ const pick = <K extends Array<keyof T>, T extends {}>(keys: K, obj: T) => {
 }
 
 const trackDownload = () => {
-  fathom("trackGoal", "0OQBGIRR", 0)
+  fathom.trackGoal("0OQBGIRR", 0)
 }
 
 const loadLazyImages = () => {
