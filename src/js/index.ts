@@ -13,40 +13,40 @@ const pick = <K extends Array<keyof T>, T extends {}>(keys: K, obj: T) => {
 }
 
 const trackDownload = () => {
-  fathom('trackGoal', '0OQBGIRR', 0)
+  fathom("trackGoal", "0OQBGIRR", 0)
 }
 
 const loadLazyImages = () => {
-  const lazyImages = document.querySelectorAll('img.lazy')
+  const lazyImages = document.querySelectorAll("img.lazy")
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (!entry.isIntersecting) return
 
         const image = entry.target as HTMLImageElement
         image.src = image.dataset.src as string
-        image.srcset = image.dataset.srcset || ''
+        image.srcset = image.dataset.srcset || ""
 
         image.onload = () => {
-          image.classList.remove('lazy')
+          image.classList.remove("lazy")
           image.onload = null
         }
         observer.unobserve(image)
       })
     })
 
-    lazyImages.forEach(image => observer.observe(image))
+    lazyImages.forEach((image) => observer.observe(image))
   }
 }
 
 let initialLogoHeight = 0
 const initLogo = () => {
-  const logo = document.querySelector('.logo') as HTMLImageElement
+  const logo = document.querySelector(".logo") as HTMLImageElement
   initialLogoHeight = logo.clientHeight
 
   const setSize = (size: number) => {
-    logo.setAttribute('style', `height: ${size}px; width: ${size}px`)
+    logo.setAttribute("style", `height: ${size}px; width: ${size}px`)
   }
 
   document.body.onscroll = () => {
@@ -59,19 +59,19 @@ const initLogo = () => {
 
     setSize(newSize)
 
-    if (scroll >= 50) return logo.classList.add('small')
-    if (scroll < 50) return logo.classList.remove('small')
+    if (scroll >= 50) return logo.classList.add("small")
+    if (scroll < 50) return logo.classList.remove("small")
   }
 }
 
 const initHeaderLinks = () => {
-  const links = document.querySelectorAll<HTMLLinkElement>('header > a')
+  const links = document.querySelectorAll<HTMLLinkElement>("header > a")
 
-  links.forEach(link => {
+  links.forEach((link) => {
     const { hash } = new URL(link.href)
-    if (hash === '') return
+    if (hash === "") return
 
-    link.onclick = e => {
+    link.onclick = (e) => {
       e.preventDefault()
 
       // Slice to remove the #
@@ -81,35 +81,35 @@ const initHeaderLinks = () => {
 
       document.documentElement.scrollTo({
         top: destination.offsetTop - 50,
-        behavior: 'smooth',
+        behavior: "smooth",
       })
     }
   })
 }
 
 const initPlayer = () => {
-  const player = document.querySelector('video') as HTMLVideoElement
+  const player = document.querySelector("video") as HTMLVideoElement
 
-  player.onclick = e => {
+  player.onclick = (e) => {
     const target = e.currentTarget as HTMLVideoElement
 
-    target[target.paused ? 'play' : 'pause']()
+    target[target.paused ? "play" : "pause"]()
   }
 }
 
 const getExtension = () => {
   const { platform } = navigator
 
-  if (platform.match(/[wW]in/)) return '.exe'
-  if (platform.match(/[mM]ac/)) return '.dmg'
+  if (platform.match(/[wW]in/)) return ".exe"
+  if (platform.match(/[mM]ac/)) return ".dmg"
 }
 
-type ThinRelease = Pick<GitHubRelease, 'assets' | 'name' | 'tag_name'>
+type ThinRelease = Pick<GitHubRelease, "assets" | "name" | "tag_name">
 const MINUTE = 1000 * 60
 const getRelease = async () => {
   let latestRelease: GitHubRelease | ThinRelease | null = null
-  const cachedRelease = localStorage.getItem('release')
-  const updatedAt = Number(localStorage.getItem('updatedAt') || 0)
+  const cachedRelease = localStorage.getItem("release")
+  const updatedAt = Number(localStorage.getItem("updatedAt") || 0)
 
   if (cachedRelease) {
     latestRelease = JSON.parse(cachedRelease) as ThinRelease
@@ -120,30 +120,30 @@ const getRelease = async () => {
   const isStale = updatedAt + MINUTE < Date.now()
   if (!cachedRelease || isStale) {
     const response = await fetch(
-      'https://api.github.com/repos/BeeeQueue/yuna/releases?page=1',
+      "https://api.github.com/repos/BeeeQueue/yuna/releases?page=1",
     )
     latestRelease = (await response.json())[0] as GitHubRelease
 
     updateReleaseButton(latestRelease)
 
     localStorage.setItem(
-      'release',
-      JSON.stringify(pick(['assets', 'name', 'tag_name'], latestRelease)),
+      "release",
+      JSON.stringify(pick(["assets", "name", "tag_name"], latestRelease)),
     )
-    localStorage.setItem('updatedAt', Date.now().toString())
+    localStorage.setItem("updatedAt", Date.now().toString())
   }
 }
 
 const updateReleaseButton = (latestRelease: ThinRelease) => {
   const ext = getExtension()
   const downloadButton = document.getElementById(
-    'download',
+    "download",
   ) as HTMLButtonElement
   ;(downloadButton.lastChild as HTMLParagraphElement).innerHTML =
     latestRelease.tag_name
 
-  const correctAsset = latestRelease.assets.find(release =>
-    release.name.endsWith(ext || 'shabalabadoo'),
+  const correctAsset = latestRelease.assets.find((release) =>
+    release.name.endsWith(ext || "shabalabadoo"),
   )
 
   downloadButton.onclick = trackDownload
@@ -158,7 +158,7 @@ const updateReleaseButton = (latestRelease: ThinRelease) => {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   loadLazyImages()
   initLogo()
   initHeaderLinks()

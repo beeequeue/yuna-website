@@ -71,4 +71,4 @@ declare interface GitHubRelease {
   body: string
 }
 
-declare function fathom(type: 'trackGoal', id: string, value: number): void
+declare function fathom(type: "trackGoal", id: string, value: number): void

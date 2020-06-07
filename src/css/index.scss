@@ -1,5 +1,5 @@
-@import './colors.scss';
-@import './button.scss';
+@import "./colors.scss";
+@import "./button.scss";
 
 $main-dark: darken($main, 7.5%);
 
@@ -47,7 +47,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Raleway', sanf-serif;
+  font-family: "Raleway", sanf-serif;
   margin: 0;
 
   &:not(:last-child) {
@@ -95,7 +95,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     flex-basis: 125px;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     color: $white;
     text-decoration: none;
     cursor: pointer;
@@ -255,7 +255,7 @@ section {
     & > a {
       padding: 10px 0;
       color: white;
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
     }
   }
 }
