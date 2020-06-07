@@ -4,6 +4,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "isolatedModules": true,
     "sourceMap": true,
     "lib": ["dom", "scripthost", "es2015", "es2016", "es2017"]
   },
