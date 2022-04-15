@@ -1,7 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  cross-env: 7.0.3
   delete: 1.1.0
   gh-pages: 3.2.3
   gulp: 4.0.2
@@ -22,7 +21,6 @@ specifiers:
   typescript: 4.6.3
 
 devDependencies:
-  cross-env: 7.0.3
   delete: 1.1.0
   gh-pages: 3.2.3
   gulp: 4.0.2
@@ -765,14 +763,6 @@ packages:
 
   /create-require/1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
-    dev: true
-
-  /cross-env/7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
-    hasBin: true
-    dependencies:
-      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:
