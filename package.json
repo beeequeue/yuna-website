@@ -3,7 +3,23 @@
   "description": "Promotional website for Yuna",
   "version": "1.0.0",
   "author": "BeeeQueue",
+  "license": "MIT",
+  "private": true,
   "packageManager": "pnpm@6.32.7",
+  "simple-git-hooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,html,json,css,scss}": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp",
+    "serve": "gulp watch",
+    "release": "cross-env NODE_ENV=production yarn run build && gulp publish"
+  },
   "devDependencies": {
     "cross-env": "7.0.3",
     "delete": "1.1.0",
@@ -23,25 +39,8 @@
     "lint-staged": "12.3.8",
     "prettier": "2.6.2",
     "sass": "1.50.0",
+    "simple-git-hooks": "2.7.0",
     "ts-node": "10.7.0",
     "typescript": "4.6.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "license": "MIT",
-  "lint-staged": {
-    "*.{js,ts,json,scss}": [
-      "yarn prettier --write",
-      "git add"
-    ]
-  },
-  "private": true,
-  "scripts": {
-    "build": "cross-env NODE_ENV=production gulp",
-    "serve": "gulp watch",
-    "release": "cross-env NODE_ENV=production yarn run build && gulp publish"
   }
 }
