@@ -12,10 +12,8 @@ specifiers:
   gulp-pug: 5.0.0
   gulp-sass: 5.1.0
   gulp-serve: ^1.4.0
-  gulp-sourcemaps: 3.0.0
   gulp-typescript: 6.0.0-alpha.1
   gulp-uglify: 3.0.2
-  husky: 7.0.4
   lint-staged: 12.3.8
   prettier: 2.6.2
   sass: 1.50.0
@@ -35,10 +33,8 @@ devDependencies:
   gulp-pug: 5.0.0
   gulp-sass: 5.1.0
   gulp-serve: 1.4.0
-  gulp-sourcemaps: 3.0.0
   gulp-typescript: 6.0.0-alpha.1_typescript@4.6.3
   gulp-uglify: 3.0.2
-  husky: 7.0.4
   lint-staged: 12.3.8
   prettier: 2.6.2
   sass: 1.50.0
@@ -79,25 +75,6 @@ packages:
       '@cspotcode/source-map-consumer': 0.8.0
     dev: true
 
-  /@gulp-sourcemaps/identity-map/2.0.1:
-    resolution: {integrity: sha512-Tb+nSISZku+eQ4X1lAkevcQa+jknn/OVUgZ3XCxEKIsLsqYuPoJwJOPQeaOk75X3WPftb29GWY1eqE7GLsXb1Q==}
-    engines: {node: '>= 0.10'}
-    dependencies:
-      acorn: 6.4.2
-      normalize-path: 3.0.0
-      postcss: 7.0.39
-      source-map: 0.6.1
-      through2: 3.0.2
-    dev: true
-
-  /@gulp-sourcemaps/map-sources/1.0.0:
-    resolution: {integrity: sha1-iQrnxdjId/bThIYCFazp1+yUW9o=}
-    engines: {node: '>= 0.10'}
-    dependencies:
-      normalize-path: 2.1.1
-      through2: 2.0.5
-    dev: true
-
   /@tsconfig/node10/1.0.8:
     resolution: {integrity: sha512-6XFfSQmMgq0CFLY1MslA/CPUfhIL919M1rMsa5lP2P097N2Wd1sSX0tx1u4olM16fLNhtHZpRhedZJphNJqmZg==}
     dev: true
@@ -117,12 +94,6 @@ packages:
   /acorn-walk/8.2.0:
     resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
     engines: {node: '>=0.4.0'}
-    dev: true
-
-  /acorn/6.4.2:
-    resolution: {integrity: sha512-XtGIhXwF8YM8bJhGxG5kXgjkEuNGLTkoYqVE+KMR+aspr4KGYmKYg7yUe3KghyQ9yheNwLnjmzh/7+gfDBmHCQ==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
     dev: true
 
   /acorn/7.4.1:
@@ -813,14 +784,6 @@ packages:
       which: 2.0.2
     dev: true
 
-  /css/3.0.0:
-    resolution: {integrity: sha512-DG9pFfwOrzc+hawpmqX/dHYHJG+Bsdb0klhyi1sDneOgGOXy9wQIC8hzyVp1e4NRYDBdxcylvywPkkXCHAzTyQ==}
-    dependencies:
-      inherits: 2.0.4
-      source-map: 0.6.1
-      source-map-resolve: 0.6.0
-    dev: true
-
   /d/1.0.1:
     resolution: {integrity: sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA==}
     dependencies:
@@ -832,24 +795,10 @@ packages:
     resolution: {integrity: sha1-QGXiATz5+5Ft39gu+1Bq1MZ2kGI=}
     dev: true
 
-  /debug-fabulous/1.1.0:
-    resolution: {integrity: sha512-GZqvGIgKNlUnHUPQhepnUZFIMoi3dgZKQBzKDeL2g7oJF9SNAji/AAu36dusFUas0O+pae74lNeoIPHqXWDkLg==}
-    dependencies:
-      debug: 3.2.7
-      memoizee: 0.4.15
-      object-assign: 4.1.1
-    dev: true
-
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     dependencies:
       ms: 2.0.0
-    dev: true
-
-  /debug/3.2.7:
-    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
-    dependencies:
-      ms: 2.1.3
     dev: true
 
   /debug/4.3.4_supports-color@9.2.2:
@@ -939,11 +888,6 @@ packages:
 
   /detect-file/1.0.0:
     resolution: {integrity: sha1-8NZtA2cqglyxtzvbP+YjEMjlUrc=}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
-  /detect-newline/2.1.0:
-    resolution: {integrity: sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -1079,13 +1023,6 @@ packages:
   /etag/1.8.1:
     resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=}
     engines: {node: '>= 0.6'}
-    dev: true
-
-  /event-emitter/0.3.5:
-    resolution: {integrity: sha1-34xp7vFkeSPHFXuc6DhAYQsCzDk=}
-    dependencies:
-      d: 1.0.1
-      es5-ext: 0.10.60
     dev: true
 
   /execa/5.1.1:
@@ -1601,23 +1538,6 @@ packages:
       serve-static: 1.15.0
     dev: true
 
-  /gulp-sourcemaps/3.0.0:
-    resolution: {integrity: sha512-RqvUckJkuYqy4VaIH60RMal4ZtG0IbQ6PXMNkNsshEGJ9cldUPRb/YCgboYae+CLAs1HQNb4ADTKCx65HInquQ==}
-    engines: {node: '>= 6'}
-    dependencies:
-      '@gulp-sourcemaps/identity-map': 2.0.1
-      '@gulp-sourcemaps/map-sources': 1.0.0
-      acorn: 6.4.2
-      convert-source-map: 1.8.0
-      css: 3.0.0
-      debug-fabulous: 1.1.0
-      detect-newline: 2.1.0
-      graceful-fs: 4.2.10
-      source-map: 0.6.1
-      strip-bom-string: 1.0.0
-      through2: 2.0.5
-    dev: true
-
   /gulp-typescript/6.0.0-alpha.1_typescript@4.6.3:
     resolution: {integrity: sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==}
     engines: {node: '>= 8'}
@@ -1793,12 +1713,6 @@ packages:
   /human-signals/2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
-    dev: true
-
-  /husky/7.0.4:
-    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
-    engines: {node: '>=12'}
-    hasBin: true
     dev: true
 
   /immutable/4.0.0:
@@ -2333,12 +2247,6 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
-  /lru-queue/0.1.0:
-    resolution: {integrity: sha1-Jzi9nw089PhEkMVzbEhpmsYyzaM=}
-    dependencies:
-      es5-ext: 0.10.60
-    dev: true
-
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -2395,19 +2303,6 @@ packages:
       has-glob: 1.0.0
       is-valid-glob: 1.0.0
       resolve-dir: 1.0.1
-    dev: true
-
-  /memoizee/0.4.15:
-    resolution: {integrity: sha512-UBWmJpLZd5STPm7PMUlOw/TSy972M+z8gcyQ5veOnSDRREz/0bmpyTfKt3/51DhEBqCZQn1udM/5flcSPYhkdQ==}
-    dependencies:
-      d: 1.0.1
-      es5-ext: 0.10.60
-      es6-weak-map: 2.0.3
-      event-emitter: 0.3.5
-      is-promise: 2.2.2
-      lru-queue: 0.1.0
-      next-tick: 1.1.0
-      timers-ext: 0.1.7
     dev: true
 
   /merge-stream/2.0.0:
@@ -2806,10 +2701,6 @@ packages:
       pinkie-promise: 2.0.1
     dev: true
 
-  /picocolors/0.2.1:
-    resolution: {integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==}
-    dev: true
-
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
@@ -2866,14 +2757,6 @@ packages:
 
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-    dev: true
-
-  /postcss/7.0.39:
-    resolution: {integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      picocolors: 0.2.1
-      source-map: 0.6.1
     dev: true
 
   /postcss/8.4.12:
@@ -3400,14 +3283,6 @@ packages:
       urix: 0.1.0
     dev: true
 
-  /source-map-resolve/0.6.0:
-    resolution: {integrity: sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==}
-    deprecated: See https://github.com/lydell/source-map-resolve#deprecated
-    dependencies:
-      atob: 2.1.2
-      decode-uri-component: 0.2.0
-    dev: true
-
   /source-map-url/0.4.1:
     resolution: {integrity: sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==}
     deprecated: See https://github.com/lydell/source-map-url#deprecated
@@ -3561,11 +3436,6 @@ packages:
       ansi-regex: 6.0.1
     dev: true
 
-  /strip-bom-string/1.0.0:
-    resolution: {integrity: sha1-5SEekiQ2n7uB1jOi8ABE3IztrZI=}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
   /strip-bom/2.0.0:
     resolution: {integrity: sha1-YhmoVhZSBJHzV4i9vxRHqZx+aw4=}
     engines: {node: '>=0.10.0'}
@@ -3656,13 +3526,6 @@ packages:
   /time-stamp/1.1.0:
     resolution: {integrity: sha1-dkpaEa9QVhkhsTPztE5hhofg9cM=}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /timers-ext/0.1.7:
-    resolution: {integrity: sha512-b85NUNzTSdodShTIbky6ZF02e8STtVVfD+fu4aXXShEELpozH+bCpJLYMPZbsABN2wDH7fJpqIoXxJpzbf0NqQ==}
-    dependencies:
-      es5-ext: 0.10.60
-      next-tick: 1.1.0
     dev: true
 
   /to-absolute-glob/2.0.2:

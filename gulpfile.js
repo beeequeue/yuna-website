@@ -2,11 +2,10 @@ const { src, dest, watch, series, parallel } = require("gulp")
 const ifG = require("gulp-if")
 const Autoprefixer = require("gulp-autoprefixer")
 const CleanCSS = require("gulp-clean-css")
-const Sass = require("gulp-sass")
+const Sass = require("gulp-sass")(require("sass"))
 const Pug = require("gulp-pug")
 const TypeScript = require("gulp-typescript")
 const Uglify = require("gulp-uglify")
-const SourceMaps = require("gulp-sourcemaps")
 const serve = require("gulp-serve")
 const Delete = require("delete")
 const Pages = require("gh-pages")
@@ -19,8 +18,6 @@ const ifProd = (m) => ifG(isProd, m)
 
 const TSProject = TypeScript.createProject("tsconfig.json")
 
-Sass.compiler = require("node-sass")
-
 // Pug -> HTML
 const htmlPath = "src/*.pug"
 const html = () =>
@@ -32,20 +29,17 @@ const html = () =>
 const cssPath = "src/**/*.scss"
 const css = () =>
   src(cssPath)
-    .pipe(SourceMaps.init())
     .pipe(Sass().on("error", Sass.logError))
     .pipe(Autoprefixer())
     .pipe(ifProd(CleanCSS()))
-    .pipe(SourceMaps.write("."))
     .pipe(dest(destination))
 
 const jsPath = "src/**/*.ts"
 const js = () => {
-  const tsResult = src(jsPath).pipe(SourceMaps.init()).pipe(TSProject())
+  const tsResult = src(jsPath).pipe(TSProject())
 
   return tsResult.js
     .pipe(ifProd(Uglify({ toplevel: true })))
-    .pipe(SourceMaps.write("."))
     .pipe(dest(destination))
 }
 
