@@ -23,7 +23,7 @@ html(lang="en")
         transition: background 1s;
       }
 
-    link(rel="stylesheet" href="css/index.css")
+    link(rel="stylesheet" href="./src/css/index.scss")
     link(link href="https://fonts.googleapis.com/css?family=Lato:400|Raleway:700" rel="stylesheet")
 
     link(href="https://github.com/BeeeQueue" rel="me")
@@ -36,7 +36,7 @@ html(lang="en")
     header
       a.item(href="#features") Features
       img.logo(src="img/logo.png" alt="logo")
-      a.item.align-left(href="#video") Download
+      a.item.align-left(href="#video")
       a.github(
         href="https://github.com/BeeeQueue/yuna"
         target="_blank"
@@ -49,37 +49,7 @@ html(lang="en")
       h1.description.
         Anime Player and List Manager
 
-      .support
-        .providers
-          div Streaming services:
-          .container
-            a(href="https://crunchyroll.com" target="_blank" noref noopener title="Crunchyroll")
-              img(src="img/providers/crunchyroll.svg")
-            a(href="https://hidive.com" target="_blank" noref noopener title="HIDIVE")
-              img(src="img/providers/hidive.svg")
-
-        .providers
-          div List managers:
-          .container
-            a(href="https://anilist.co" target="_blank" noref noopener title="AniList")
-              img(src="img/lists/anilist.svg")
-            a(href="https://simkl.com" target="_blank" noref noopener title="Simkl")
-              img(src="img/lists/simkl.svg")
-
       video(src="video/flow.mp4?v=1.4" autoplay=isProd loop="true" muted="true")
-
-      .download-container
-        .platforms
-          img(src="img/windows.svg", alt="win")
-          img(src="img/mac.svg", alt="mac")
-          img(src="img/linux.svg", alt="linux")
-
-        button#download(onclick="location.href = 'https://github.com/BeeeQueue/yuna/releases'")
-          p Download
-          p.version
-
-        a(href="https://github.com/BeeeQueue/yuna/releases" target="_blank" rel="noopener").
-          Release notes and more downloads
 
     section#features
       h1.heading Features
@@ -88,7 +58,6 @@ html(lang="en")
         .content-container
           .content
             h3 Watch anime and update your List from the same place!
-            p With streaming service integrations you can watch any show available, with automatic list updates when you finish an episode!
         .image-container
           +lazyImg("anime")
 
@@ -123,5 +92,4 @@ html(lang="en")
         | This website is hosted using GitHub Pages
         img.github(src="img/github.svg" alt="github")
 
-    script(src="js/index.js")
-    include ./templates/analytics
+    script(type="module" src="./src/js/index.ts")

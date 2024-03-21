@@ -1,21 +1,3 @@
-const pick = <K extends Array<keyof T>, T extends {}>(keys: K, obj: T) => {
-  const willReturn = {} as any
-  let counter = 0
-
-  while (counter < keys.length) {
-    if (keys[counter] in obj) {
-      willReturn[keys[counter]] = obj[keys[counter]]
-    }
-    counter++
-  }
-
-  return willReturn as Pick<T, K[number]>
-}
-
-const trackDownload = () => {
-  fathom.trackGoal("0OQBGIRR", 0)
-}
-
 const loadLazyImages = () => {
   const lazyImages = document.querySelectorAll("img.lazy")
 
@@ -97,72 +79,9 @@ const initPlayer = () => {
   }
 }
 
-const getExtension = () => {
-  const { platform } = navigator
-
-  if (platform.match(/[wW]in/)) return ".exe"
-  if (platform.match(/[mM]ac/)) return ".dmg"
-}
-
-type ThinRelease = Pick<GitHubRelease, "assets" | "name" | "tag_name">
-const MINUTE = 1000 * 60
-const getRelease = async () => {
-  let latestRelease: GitHubRelease | ThinRelease | null = null
-  const cachedRelease = localStorage.getItem("release")
-  const updatedAt = Number(localStorage.getItem("updatedAt") || 0)
-
-  if (cachedRelease) {
-    latestRelease = JSON.parse(cachedRelease) as ThinRelease
-
-    updateReleaseButton(latestRelease)
-  }
-
-  const isStale = updatedAt + MINUTE < Date.now()
-  if (!cachedRelease || isStale) {
-    const response = await fetch(
-      "https://api.github.com/repos/BeeeQueue/yuna/releases?page=1",
-    )
-    latestRelease = (await response.json())[0] as GitHubRelease
-
-    updateReleaseButton(latestRelease)
-
-    localStorage.setItem(
-      "release",
-      JSON.stringify(pick(["assets", "name", "tag_name"], latestRelease)),
-    )
-    localStorage.setItem("updatedAt", Date.now().toString())
-  }
-}
-
-const updateReleaseButton = (latestRelease: ThinRelease) => {
-  const ext = getExtension()
-  const downloadButton = document.getElementById(
-    "download",
-  ) as HTMLButtonElement
-  ;(downloadButton.lastChild as HTMLParagraphElement).innerHTML =
-    latestRelease.tag_name
-
-  const correctAsset = latestRelease.assets.find((release) =>
-    release.name.endsWith(ext || "shabalabadoo"),
-  )
-
-  downloadButton.onclick = trackDownload
-
-  if (!correctAsset) return
-
-  const url = correctAsset.browser_download_url
-
-  downloadButton.onclick = () => {
-    trackDownload()
-    location.href = url
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   loadLazyImages()
   initLogo()
   initHeaderLinks()
   initPlayer()
-
-  getRelease()
 })
