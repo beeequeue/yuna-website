@@ -19,11 +19,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "release": "pnpm run build TODO",
+    "release": "gh-pages --dist dist --cname yuna.moe",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
     "delete": "1.1.0",
+    "gh-pages": "6.1.1",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "sass": "1.72.0",
@@ -32,5 +33,11 @@
     "typescript": "5.4.3",
     "vite": "5.2.2",
     "vite-plugin-pug-transformer": "1.0.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "hasown": "npm:@nolyfill/hasown@latest",
+      "is-regex": "npm:@nolyfill/is-regex@latest"
+    }
   }
 }
