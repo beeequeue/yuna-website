@@ -1,11 +1,12 @@
 {
   "name": "yuna-website",
+  "type": "module",
   "description": "Promotional website for Yuna",
   "version": "1.0.0",
   "author": "BeeeQueue",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@6.32.7",
+  "packageManager": "pnpm@8.15.5",
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
