@@ -17,29 +17,20 @@
     ]
   },
   "scripts": {
-    "build": "NODE_ENV=production gulp",
-    "serve": "gulp watch",
-    "release": "pnpm run build && gulp publish",
+    "dev": "vite",
+    "build": "vite build",
+    "release": "pnpm run build TODO",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
     "delete": "1.1.0",
-    "gh-pages": "3.2.3",
-    "gulp": "4.0.2",
-    "gulp-autoprefixer": "8.0.0",
-    "gulp-clean-css": "4.3.0",
-    "gulp-cli": "2.3.0",
-    "gulp-if": "3.0.0",
-    "gulp-pug": "5.0.0",
-    "gulp-sass": "5.1.0",
-    "gulp-serve": "^1.4.0",
-    "gulp-typescript": "6.0.0-alpha.1",
-    "gulp-uglify": "3.0.2",
-    "lint-staged": "12.3.8",
-    "prettier": "2.6.2",
-    "sass": "1.50.0",
-    "simple-git-hooks": "2.7.0",
-    "ts-node": "10.7.0",
-    "typescript": "4.6.3"
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "sass": "1.72.0",
+    "simple-git-hooks": "2.11.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.4.3",
+    "vite": "5.2.2",
+    "vite-plugin-pug-transformer": "1.0.5"
   }
 }
